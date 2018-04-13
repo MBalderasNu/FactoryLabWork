@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -42,7 +43,7 @@ public class HTMLComponentFactory extends UIComponentFactory {
 		// TODO Auto-generated method stub
 		//builds the html text file
 		String dir = System.getProperty("user.dir");
-		dir = dir + "HTMLSolution.html";
+		dir = dir + "/HTMLSolution.html";
 		File file = new File(dir);
 		try {
 			
@@ -67,10 +68,15 @@ public class HTMLComponentFactory extends UIComponentFactory {
 		// TODO Auto-generated method stub
 		//opening html page
 		String dir = System.getProperty("user.dir");
-		dir = dir + "HTMLSolution.html";
+		dir = dir + "/HTMLSolution.html";
 		//load up the page
 		try {
-			devEnv.executeCommand("rundll32 url.dll,FileProtocolHandler \""+dir+"\"", false);
+//			devEnv.executeCommand("rundll32 url.dll,FileProtocolHandler \""+dir+"\"", false);
+			if (Desktop.isDesktopSupported()) {
+                Desktop desktop = Desktop.getDesktop();
+                File file = new File(dir);
+                desktop.open(new File(dir));
+			}
 		}
 		catch(Exception e) {
 			e.printStackTrace();

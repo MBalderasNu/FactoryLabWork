@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public class DevEnviroment {
+public class DevEnvironment {
 
 	public void executeCommand(String command, boolean wait) throws Exception {
 		//Source: http://stackoverflow.com/questions/4842684/how-to-compile-run-java-program-in-another-java-program
