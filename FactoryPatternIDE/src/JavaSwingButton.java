@@ -1,3 +1,4 @@
+import javax.swing.JButton;
 
 public class JavaSwingButton extends UIComponent{
 
@@ -7,8 +8,10 @@ public class JavaSwingButton extends UIComponent{
 
 	@Override
 	public String getComponent() {
-		
-		return null;
+		String javaButton = "JButton button = new JButton(" + getContent() +"); "
+				+ "button.setBounds(" + getXPosition() + ", " + getYPosition() + 
+				", " + getWidth() + ", " + getHeight() + ");";
+		return javaButton;
 	}
 
 }

@@ -20,9 +20,9 @@ public class HTMLComponentFactory extends UIComponentFactory {
             htmlcomponent = new HTMLButton(height, width, xposition, yposition, content);
         }
 
-        if (type.equals("Image")) {
-            htmlcomponent = new HTMLImage(height, width, xposition, yposition, content);
-        }
+//        if (type.equals("Image")) {
+//            htmlcomponent = new HTMLImage(height, width, xposition, yposition, content);
+//        }
 
         if (htmlcomponent != null) {
 

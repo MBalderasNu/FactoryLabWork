@@ -1,3 +1,4 @@
+import javax.swing.JLabel;
 
 public class JavaSwingLabel extends UIComponent{
 
@@ -7,8 +8,10 @@ public class JavaSwingLabel extends UIComponent{
 
 	@Override
 	public String getComponent() {
-		
-		return null;
+		String javaLabel = "JLabel a = new JLabel(" + getContent() + "); "
+				+ "a.setBounds(" + getXPosition() + ", " + getYPosition() + 
+				", " + getWidth()+ ", " + getHeight() + ");";
+		return javaLabel;
 	}
 
 }
