@@ -56,7 +56,7 @@ public class HTMLComponentFactory extends UIComponentFactory {
         try {
 
             FileWriter f = new FileWriter(file);
-            f.write("<DOCTYPE html><html><body>\n");
+            f.write("<!DOCTYPE html><html><body>\n");
             for (UIComponent ui : components) {
 
                 f.write(ui.getComponent());
