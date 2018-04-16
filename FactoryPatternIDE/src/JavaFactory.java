@@ -3,6 +3,10 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.WindowConstants;
+
 public class JavaFactory extends UIComponentFactory{
 
 	@Override
@@ -36,23 +40,27 @@ public class JavaFactory extends UIComponentFactory{
 	@Override
 	public void build() {
 		// TODO Auto-generated method stub
-		// make filler file
-		// compile it using javac saidfile
-		// run java saidfile
 		String dir = System.getProperty("user.dir");
-        dir = dir + "/JavaIDE.java";
+        dir = dir + "/src/JavaIDE.java";
         File file = new File(dir);
         try {
 
             FileWriter f = new FileWriter(file);
-            f.write("public class JavaIDE { "
-            		+ "public static void main(String[] args) { "
-            		+ "System.out.println(\"Test\");");
+            f.write("import javax.swing.JButton;import javax.swing.JFrame;import javax.swing.JPanel;import javax.swing.WindowConstants;"
+            		+ "public class JavaIDE { "
+            		+ "public static void main(String[] args) { " 
+            		+ "JFrame f = new JFrame(); " 
+            		+ "f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);"
+            		+ "JPanel p = new JPanel();"
+            		+ "p.setLayout(null);");
             for (UIComponent ui : components) {
-
+            	System.out.println(ui);
                 f.write(ui.getComponent());
+//                f.write("p.add()");
             }
-            f.write("}}");
+            f.write("f.add(p);" 
+            + "f.setSize(800, 500);" 
+            + "f.setVisible(true);}}");
             f.close();
 
 
@@ -66,16 +74,22 @@ public class JavaFactory extends UIComponentFactory{
 	public void run() {
 		// TODO Auto-generated method stub
 		 String dir = System.getProperty("user.dir");
-        dir = dir + "/JaveIDE.java";
+        dir = dir + "/JavaIDE.java";
         //load up the page
         try {
-//				devEnv.executeCommand("rundll32 url.dll,FileProtocolHandler \""+dir+"\"", false);
-            if (Desktop.isDesktopSupported()) {
-                Desktop desktop = Desktop.getDesktop();
-                File file = new File(dir);
-                //breaks here saying cannot find file
-                desktop.open(new File(dir));
-            }
+        	//needs the output of where the compiler is going to be
+//        	devEnv.executeCommand("C:\\Program Files\\Java\\jdk1.8.0_60\\bin\\javac.exe\" -d  \""+dir+"\"", true);
+        	//needs the output of where the compiler is going to be
+//        	devEnv.executeCommand("C:\\Program Files\\Java\\jdk1.8.0_60\\bin\\java\" -classpath  \""+dir+"\"", true);
+        	
+        	
+//			devEnv.executeCommand("rundll32 url.dll,FileProtocolHandler \""+dir+"\"", false);
+//            if (Desktop.isDesktopSupported()) {
+//                Desktop desktop = Desktop.getDesktop();
+//                File file = new File(dir);
+//                //breaks here saying cannot find file
+//                desktop.open(new File(dir));
+//            }
         } catch (Exception e) {
             e.printStackTrace();
         }
