@@ -21,8 +21,12 @@ public class HTMLComponentFactory extends UIComponentFactory {
         }
 
 //        if (type.equals("Image")) {
-//            htmlcomponent = new HTMLImage(height, width, xposition, yposition, content);
+//           htmlcomponent = new HTMLImage(height, width, xposition, yposition, content);
 //        }
+        
+        if(type.equals("Textarea")) {
+        	htmlcomponent = new HTMLTextArea(height,width,xposition,yposition,content);
+        }
 
         if (htmlcomponent != null) {
 
@@ -89,7 +93,7 @@ public class HTMLComponentFactory extends UIComponentFactory {
     @Override
     public String[] getOptions() {
         // TODO Auto-generated method stub
-        String[] options = new String[]{"Label", "Button", "Image"};
+        String[] options = new String[]{"Label", "Button", "Image" , "Textarea"};
         return options;
     }
 
